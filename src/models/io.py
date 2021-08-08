@@ -22,10 +22,11 @@ def load_h5(h5_path):
   return X, Y
 
 def upsample_wav(wav, args, model):
-
+  print("upsample1" + "*" * 80)
   # load signal
   x_hr, fs = librosa.load(wav, sr=args.sr)
 
+  print("upsample2" + "*" * 80)
   x_lr_t = decimate(x_hr, args.r)
 
   # pad to mutliple of patch size to ensure model runs over entire sample
@@ -34,9 +35,12 @@ def upsample_wav(wav, args, model):
   # downscale signal
   x_lr = decimate(x_hr, args.r)
 
+  print("upsample3" + "*" * 80)
   # upscale the low-res version
   P = model.predict(x_lr.reshape((1,len(x_lr),1)))
   x_pr = P.flatten()
+
+  print("upsample4" + "*" * 80)
 
   # crop so that it works with scaling ratio
   x_hr = x_hr[:len(x_pr)]
@@ -48,6 +52,8 @@ def upsample_wav(wav, args, model):
   sf.write(outname + '.hr.wav', x_hr, fs)
   sf.write(outname + '.pr.wav', x_pr, fs)
 
+  print("upsample5" + "*" * 80)
+
   # save the spectrum
   S = get_spectrum(x_pr, n_fft=2048)
   save_spectrum(S, outfile=outname + '.pr.png')
@@ -55,6 +61,8 @@ def upsample_wav(wav, args, model):
   save_spectrum(S, outfile=outname + '.hr.png')
   S = get_spectrum(x_lr, n_fft=int(2048/args.r))
   save_spectrum(S, outfile=outname + '.lr.png')
+
+  print("upsample6" + "*" * 80)
 
 # ----------------------------------------------------------------------------
 

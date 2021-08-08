@@ -22,7 +22,7 @@ class Model(object):
     def __init__(self, from_ckpt=False, n_dim=None, r=2,
                  opt_params=default_opt, log_prefix='./run'):
 
-        # create session
+        # create sessionz
         self.sess = tf.compat.v1.Session()
         K.set_session(self.sess)  # pass keras the session
 

@@ -14,6 +14,8 @@ import pickle
 import models
 from models.model import default_opt
 from models.io import load_h5, upsample_wav
+# import os
+# os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 import tensorflow as tf
 
 tf.compat.v1.disable_eager_execution()
@@ -126,20 +128,28 @@ def train(args):
 
 def eval(args):
   # load model
+  print("here1" + "*"*80)
   model = get_model(args, 0, args.r, from_ckpt=True, train=False, grocery=args.grocery)
+  print("here2" + "*"*80)
   model.load(args.logname) # from default checkpoint
+  print("here3" + "*"*80)
 
   if args.wav_file_list:
+    print("here4" + "*"*80)
     with open(args.wav_file_list) as f:
+      print("here5" + "*"*80)
       for line in f:
+        print("here6" + "*"*80)
         try:
           print((line.strip()))
           if(args.speaker == 'single'):
             upsample_wav('../data/vctk/VCTK-Corpus/wav48/p225/'+line.strip(), args, model)
           else:
             upsample_wav('../data/vctk/VCTK-Corpus/'+line.strip(), args, model)
+          print("here7" + "*"*80)
         except EOFError:
           print('WARNING: Error reading file:', line.strip())
+  print("here8" + "*"*80)
 
 def get_model(args, n_dim, r, from_ckpt=False, train=True, grocery='false'):
   """Create a model based on arguments"""

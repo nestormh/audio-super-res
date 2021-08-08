@@ -145,12 +145,20 @@ class AudioTfilm(Model):
     return g
 
   def predict(self, X):
+    print("predict1" + "*" * 80)
     assert len(X) == 1
+    print("predict2" + "*" * 80)
     x_sp = spline_up(X, self.r)
+    print("predict3" + "*" * 80)
     x_sp = x_sp[:len(x_sp) - (len(x_sp) % (2**(self.layers+1)))]
+    print("predict4" + "*" * 80)
     X = x_sp.reshape((1,len(x_sp),1))
+    print("predict5" + "*" * 80)
     feed_dict = self.load_batch((X,X), train=False)
-    return self.sess.run(self.predictions, feed_dict=feed_dict)
+    print("predict6" + "*" * 80)
+    output =  self.sess.run(self.predictions, feed_dict=feed_dict)
+    print("predict7" + "*" * 80)
+    return output
 
 # ----------------------------------------------------------------------------
 # helpers

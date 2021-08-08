@@ -1,0 +1,15 @@
+python run.py train \
+  --train ../data/vctk/speaker1/vctk-speaker1-train.16.6.48000.8192.4096.h5 \
+  --val ../data/vctk/speaker1/vctk-speaker1-val.16.6.48000.8192.4096.h5 \
+  -e 120 \
+  --batch-size 16 \
+  --lr 3e-4 \
+  --logname singlespeaker \
+  --model audiotfilm \
+  --r 6 \
+  --sr 48000 \
+  --layers 4 \
+  --piano false \
+  --pool_size 2 \
+  --strides 2 \
+  --full true
