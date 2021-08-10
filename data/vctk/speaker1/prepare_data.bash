@@ -1,8 +1,8 @@
 python ../prep_vctk.py \
   --file-list  speaker1-train-files.txt \
   --in-dir ../VCTK-Corpus/wav48/p225 \
-  --out vctk-speaker1-train.16.6.48000.8192.4096.h5 \
-  --batch-size 16 \
+  --out vctk-speaker1-train.32.6.48000.8192.4096.h5 \
+  --batch-size 32 \
   --scale 6 \
   --sr 48000 \
   --dimension 8192 \
@@ -13,8 +13,8 @@ python ../prep_vctk.py \
 python ../prep_vctk.py \
   --file-list speaker1-val-files.txt \
   --in-dir ../VCTK-Corpus/wav48/p225 \
-  --out vctk-speaker1-val.16.6.48000.8192.4096.h5 \
-  --batch-size 16 \
+  --out vctk-speaker1-val.32.6.48000.8192.4096.h5 \
+  --batch-size 32 \
   --scale 6 \
   --sr 48000 \
   --dimension 8192 \
@@ -25,8 +25,8 @@ python ../prep_vctk.py \
 python ../prep_vctk.py \
   --file-list  speaker1-train-files.txt \
   --in-dir ../VCTK-Corpus/wav48/p225 \
-  --out vctk-speaker1-train.16.6.48000.-1.4096.h5 \
-  --batch-size 16 \
+  --out vctk-speaker1-train.32.6.48000.-1.4096.h5 \
+  --batch-size 32 \
   --scale 6 \
   --sr 48000 \
   --dimension -1 \
@@ -37,8 +37,8 @@ python ../prep_vctk.py \
 python ../prep_vctk.py \
   --file-list speaker1-val-files.txt \
   --in-dir ../VCTK-Corpus/wav48/p225 \
-  --out vctk-speaker1-val.16.6.48000.-1.4096.h5 \
-  --batch-size 16 \
+  --out vctk-speaker1-val.32.6.48000.-1.4096.h5 \
+  --batch-size 32 \
   --scale 6 \
   --sr 48000 \
   --dimension -1 \

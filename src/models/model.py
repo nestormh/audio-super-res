@@ -297,7 +297,8 @@ class Model(object):
                             str(r) + '.16000.-1.4096.0.1'
                     elif speaker == "single":
                         s1 = "../data/vctk/speaker1/full-"
-                        s2 = "-vctk-speaker1-val." + str(r) + '.16000.-1.4096'
+                        s2 = "-vctk-speaker1-val.32.6.48000.-1."
+                        #s2 = "-vctk-speaker1-val." + str(r) + '.16000.-1.4096'
                     elif speaker == "multi":
                         s1 = "../data/vctk/multispeaker/full-"
                         s2 = "-vctk-multispeaker-interp-val." + \

@@ -17,6 +17,7 @@ from models.io import load_h5, upsample_wav
 # import os
 # os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 import tensorflow as tf
+tf.compat.v1.experimental.output_all_intermediates(True)
 
 tf.compat.v1.disable_eager_execution()
 
